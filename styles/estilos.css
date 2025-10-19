@@ -1,0 +1,343 @@
+/* --- style.css --- */
+
+/* -----------------------------------
+   Variables Globales y Estilos Base
+   ----------------------------------- */
+:root {
+    --color-principal: #5a2c7a;
+    --color-principal-hover: #763d8d;
+    --color-fondo-claro: rgb(223, 199, 240);
+    --color-fondo-oscuro: rgb(224, 187, 248);
+    --color-texto: #333;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --borde-radio: 12px;
+    --sombra-caja: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfcff; /* Un fondo blanco-lila muy suave */
+}
+
+/* Contenedor principal para centrar contenido */
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--color-principal);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid var(--color-fondo-claro);
+    padding-bottom: 10px;
+}
+
+a {
+    color: var(--color-principal-hover);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* -----------------------------------
+    Estilos de main.html
+   ----------------------------------- */
+
+.header-imagen {
+    float: right; /* Mantenemos el float para este diseño específico */
+    width: 27%;
+    border-radius: 10%;
+    box-shadow: 5px 5px 12px rgba(136, 35, 236, 0.6);
+    margin-left: 20px;
+}
+
+/* Tarjeta de información reutilizable */
+.info-card {
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    font-size: 17px;
+    background-color: var(--color-fondo-claro);
+    border-radius: var(--borde-radio);
+    border: 2px double var(--color-principal);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 65%;
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho */
+}
+
+/* Variante de color para las tarjetas */
+.info-card.darker {
+    background-color: var(--color-fondo-oscuro);
+}
+
+.info-card.full-width {
+    width: 100%;
+}
+
+/* Estilos para las listas de cuidados */
+.cuidado-listas {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Para que se pongan una debajo de otra en móvil */
+}
+
+.cuidado-listas ol,
+.cuidado-listas ul {
+    font-style: italic;
+    font-size: 17px;
+    background-color: var(--color-fondo-claro);
+    border-radius: var(--borde-radio);
+    border: 2px double var(--color-principal);
+    padding: 20px;
+    padding-left: 40px; /* Espacio para los números/viñetas */
+    margin: 0;
+    flex: 1; /* Hacemos que ambas listas compartan el espacio */
+    min-width: 300px; /* Ancho mínimo antes de que se rompa la línea */
+}
+
+.cuidado-listas ul {
+    background-color: var(--color-fondo-oscuro);
+    list-style-type: '✨'; /* Viñeta personalizada */
+    padding-left: 30px;
+}
+
+.cuidado-listas li {
+    margin-bottom: 8px;
+}
+
+.encargo-imagen {
+    width: 20%;
+    height: auto;
+    border: 2px solid #a293e0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(180, 200, 100, 0.6);
+    margin-bottom: 20px;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--color-principal-hover);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--color-principal);
+    text-decoration: none;
+}
+
+footer {
+    margin: 40px auto 20px auto;
+    padding: 20px;
+    background-color: rgba(214, 128, 168, 0.6);
+    border-radius: var(--borde-radio);
+    text-align: center;
+}
+
+footer h6 {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1em;
+    flex-wrap: wrap; /* Para móvil */
+}
+
+footer img {
+    width: 21px;
+    height: 21px;
+}
+
+
+/* -----------------------------------
+   Estilos de catalogo.html
+   ----------------------------------- */
+
+.product-grid {
+    display: grid;
+    /* Crea columnas automáticas: 
+      - 'auto-fit' llena el espacio
+      - 'minmax(280px, 1fr)' dice que cada columna debe tener
+        un mínimo de 280px y un máximo de 1 fracción (se reparten el espacio).
+      ¡Esto crea la magia responsive!
+    */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-caja);
+    padding: 15px;
+    text-align: center;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 200px; /* Un tamaño más grande para la imagen */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    color: var(--color-principal);
+    font-size: 1.4em;
+    margin-top: 0;
+}
+
+.product-card p {
+    text-align: left;
+    font-size: 0.95em;
+}
+
+/* Pie de tabla ahora es un pie de página del grid */
+.catalog-footer {
+    background-color: #f2f2f2;
+    font-style: italic;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: var(--borde-radio);
+}
+
+.link-volver {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+
+/* -----------------------------------
+   Estilos de formulario.html
+   ----------------------------------- */
+
+form {
+    max-width: 700px; /* Ancho máximo del formulario */
+    margin: 20px auto;
+    padding: 25px;
+    background: #f9f9f9;
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-caja);
+}
+
+fieldset {
+    border: 2px solid var(--color-fondo-claro);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+legend {
+    font-size: 1.6em;
+    font-weight: bold;
+    padding: 0 10px;
+    color: var(--color-principal);
+}
+
+/* Usamos Flexbox para alinear etiquetas e inputs.
+  'column' los apila verticalmente.
+*/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%; /* Ocupan todo el ancho disponible */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
+    font-family: var(--fuente-principal);
+    font-size: 1em;
+}
+
+input[type="file"] {
+    margin-top: 8px;
+}
+
+.radio-group label {
+    font-weight: normal; /* Las etiquetas de los radio no son bold */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.radio-group input {
+    margin-right: 8px;
+}
+
+small {
+    color: #666;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Botón de envío */
+#boton_solicitud {
+    /* Reutilizamos la clase del botón CTA de main.html */
+    @extend .btn-cta; 
+    width: 100%; /* Hacemos que ocupe todo el ancho */
+    font-size: 1.3em;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.form-footer {
+    text-align: center; /* Centramos el enlace de volver */
+    margin-top: 20px;
+}
