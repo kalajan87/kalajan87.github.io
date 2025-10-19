@@ -341,3 +341,37 @@ small {
     text-align: center; /* Centramos el enlace de volver */
     margin-top: 20px;
 }
+/* --- Media Queries para Móviles --- */
+
+/* "max-width: 600px" significa: 
+   Aplica estos estilos en cualquier pantalla de 600px de ancho O MENOS */
+
+@media (max-width: 600px) {
+
+    /* Hacemos la fuente principal más pequeña en móvil */
+    h1 {
+        font-size: 1.8em; /* Más pequeño que el original */
+    }
+
+    /* Ocultamos la imagen del header en 'main.html' 
+       porque 'float' es difícil de manejar en móvil */
+    .header-imagen {
+        display: none; 
+    }
+
+    /* Hacemos que las tarjetas de información ocupen el 100% del ancho */
+    .info-card {
+        width: 100%;
+    }
+
+    /* Hacemos que las listas de cuidados se pongan una debajo de otra */
+    .cuidado-listas {
+        flex-direction: column; /* Cambia de 'fila' a 'columna' */
+    }
+
+    /* Hacemos el formulario más simple, sin sombra ni fondo */
+    form {
+        box-shadow: none;
+        padding: 10px;
+    }
+}
